@@ -25,14 +25,7 @@ public class SplitInParts
             }
         }
 
-        if (resultList.size() * partLength < s.length())
-        {
-            for (int i = resultList.size() * partLength; i < s.length(); i++)
-            {
-                temp += s.charAt(i);
-                resultList.add(temp);
-            }
-        }
+        resultList.add(temp);
 
         String joined = String.join(" ", resultList);
         System.out.println(joined);
