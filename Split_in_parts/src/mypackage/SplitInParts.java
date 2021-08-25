@@ -7,7 +7,7 @@ public class SplitInParts
     public static void main(String[] args)
     {
         ArrayList<String> resultList = new ArrayList<>();
-        String s = "supercalifragilisticexpialidocious";
+        String s = "HelloKata";
         int partLength = 3;
         String temp = "";
 
@@ -24,8 +24,10 @@ public class SplitInParts
                 temp += s.charAt(i);
             }
         }
-
-        resultList.add(temp);
+        if (temp.length() > 0)
+        {
+            resultList.add(temp);
+        }
 
         String joined = String.join(" ", resultList);
         System.out.println(joined);
