@@ -8,6 +8,9 @@ public class CountDuplicates {
         String text_test = text.toLowerCase();
         char[] arrayCharacter = text_test.toCharArray();
         ArrayList<Character> list = new ArrayList<>();
+        int countCharacter = 0;
+        ArrayList<Character> resultList = new ArrayList<>();
+        ArrayList<Integer> countResultList = new ArrayList<>();
 
         for (int i = 0; i < arrayCharacter.length; i++)
         {
@@ -20,8 +23,34 @@ public class CountDuplicates {
                 list.add(arrayCharacter[i]);
             }
         }
-        System.out.println(list);
 
+        //Считаем количество символов
+        for (char letter: list)
+        {
+            for (int j = 0; j < arrayCharacter.length; j++)
+            {
+                if (letter == arrayCharacter[j])
+                {
+                    countCharacter++;
+                }
+            }
+
+            if (countCharacter >= 2)
+            {
+                resultList.add(letter);
+                countResultList.add(countCharacter);
+                countCharacter = 0;
+            }
+            else
+            {
+                countCharacter = 0;
+            }
+        }
+
+        for (int i = 0; i < resultList.size(); i++)
+        {
+            System.out.println("Символ '" + resultList.get(i) + "' повторяется количество раз: " + countResultList.get(i));
+        }
 
     }
 }
