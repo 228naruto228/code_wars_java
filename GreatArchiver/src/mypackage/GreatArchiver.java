@@ -11,6 +11,8 @@ public class GreatArchiver
         inputStr = inputStr.toLowerCase();
         String[] listStr = inputStr.split(" ");
         ArrayList<String> newInputStr = new ArrayList<>();
+        ArrayList<Integer> archivStr = new ArrayList<>();
+
         for (String word: listStr)
         {
             if (newInputStr.contains(word))
@@ -22,8 +24,18 @@ public class GreatArchiver
                 newInputStr.add(word);
             }
         }
-        System.out.println(newInputStr);
 
+        for (String word: listStr)
+        {
+            for (int i = 0; i < newInputStr.size(); i++)
+            {
+                if (word.equals(newInputStr.get(i)))
+                {
+                    archivStr.add(i+1);
+                }
+            }
+        }
 
+        System.out.println(archivStr);
     }
 }
